@@ -1,0 +1,18 @@
+---
+---
+
+<span id="loader" style="color: var(--accent-primary)">
+  > Oh hi!🪶
+</span>
+
+<script>
+  function initLoader() {
+    const phrases = ["> Oh hi!🪶", "> I'm b4dr47"];
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+      if (loader) loader.textContent = phrases[1];
+    }, 1000);
+  }
+  initLoader();
+  document.addEventListener('astro:after-swap', initLoader);
+</script>

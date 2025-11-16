@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon/components';
+import { metaData, socialLinks } from "../lib/config";
+
+const year = new Date().getFullYear();
+---
+
+<small class="block lg:mt-24 mt-16" style="color: var(--text-secondary)">
+  <time>© {year}</time>{" "}
+  <a class="no-underline hover:text-[#7aa2f7] transition-colors" href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary)">
+    {metaData.title}
+  </a>
+  
+  <div class="flex text-lg gap-3.5 float-right">
+    <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="hover:text-[#7aa2f7] transition-colors" style="color: var(--text-secondary)">
+      <Icon name="fa6-brands:x-twitter" class="w-[18px] h-[18px]" />
+    </a>
+    <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:text-[#7aa2f7] transition-colors" style="color: var(--text-secondary)">
+      <Icon name="fa6-brands:github" class="w-[18px] h-[18px]" />
+    </a>
+    <a href={socialLinks.discord} target="_blank" rel="noopener noreferrer" aria-label="Discord" class="hover:text-[#7aa2f7] transition-colors" style="color: var(--text-secondary)">
+      <Icon name="fa6-brands:discord" class="w-[18px] h-[18px]" />
+    </a>
+    <a href={socialLinks.email} aria-label="Email" class="hover:text-[#7aa2f7] transition-colors" style="color: var(--text-secondary)">
+      <Icon name="tabler:mail-filled" class="w-[18px] h-[18px]" />
+    </a>
+    <a href="/rss.xml" aria-label="RSS" class="hover:text-[#7aa2f7] transition-colors" style="color: var(--text-secondary)">
+      <Icon name="fa6-solid:rss" class="w-[18px] h-[18px]" />
+    </a>
+  </div>
+</small>

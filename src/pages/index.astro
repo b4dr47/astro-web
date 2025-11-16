@@ -1,16 +1,27 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Tooltip from '../components/Tooltip.astro';
+import Loader from '../components/Loader.astro';
+import { socialLinks } from '../lib/config';
+import { Image } from 'astro:assets';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <section>
+    <a href={socialLinks.twitter} target="_blank">
+      <Image
+        src="/profile.png"
+        alt="pfp"
+        class="rounded-full lg:mt-5 mt-0 lg:mb-5 mb-10 mx-auto sm:float-right sm:ml-5 sm:mb-5"
+        width={160}
+        height={160}
+      />
+    </a>
+    <h1 class="mb-8 text-2xl">
+      <b><Loader /></b>
+    </h1>
+    <div class="flex items-center mt-3">
+      <Tooltip />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,43 +1,83 @@
-# Astro Starter Kit: Minimal
+# My Astro Website
 
-```sh
-pnpm create astro@latest -- --template minimal
+A lightweight, fast personal website built with Astro and Tokyo Night theme.
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start dev server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📁 Project Structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```
 /
-├── public/
+├── public/              # Static assets
+│   ├── logo.webp
+│   ├── profile.png
+│   └── favicon.ico
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/      # Reusable components
+│   ├── content/
+│   │   └── blog/       # Blog posts (MDX)
+│   ├── layouts/        # Page layouts
+│   ├── lib/            # Configuration
+│   ├── pages/          # Routes
+│   └── styles/         # Global styles
+└── astro.config.mjs    # Astro config
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🎨 Features
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- ✨ Tokyo Night theme (light/dark mode)
+- 📝 MDX blog with content collections
+- 🔍 SEO optimized
+- 📡 RSS feed
+- 🗺️ Automatic sitemap
+- ⚡ Zero JavaScript by default
+- 🎯 Perfect Lighthouse scores
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 📝 Adding Blog Posts
 
-## 🧞 Commands
+Create a new `.mdx` file in `src/content/blog/`:
 
-All commands are run from the root of the project, from a terminal:
+```mdx
+---
+title: "My Post Title"
+publishedAt: "2025-01-15"
+summary: "A brief description"
+tags: "astro, tutorial"
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+Your content here...
+```
 
-## 👀 Want to learn more?
+## 🎨 Customization
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Edit `src/lib/config.ts` to change:
+- Site title and description
+- Social media links
+- Keywords for SEO
+
+## 📦 Deployment
+
+Deploy to Vercel, Netlify, or Cloudflare Pages:
+
+```bash
+pnpm build
+# Upload the dist/ folder
+```
+
+## 📄 License
+
+MIT

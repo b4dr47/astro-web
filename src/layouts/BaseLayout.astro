@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { metaData } from '../lib/config';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { 
+  title = metaData.title, 
+  description = metaData.description,
+  image = metaData.ogImage 
+} = Astro.props;
+
+const fullTitle = title === metaData.title ? title : `${title} | ${metaData.title}`;
+const ogImage = image.startsWith('http') ? image : new URL(image, Astro.site).toString();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={metaData.keywords.join(', ')} />
+    
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:type" content="website" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS Feed" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  </head>
+  <body class="antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-12">
+    <main class="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[624px] w-full">
+      <Nav />
+      <slot />
+      <Footer />
+    </main>
+  </body>
+</html>

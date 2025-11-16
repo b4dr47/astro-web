@@ -1,0 +1,69 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+---
+
+<nav class="lg:mb-16 mb-12 py-5">
+  <div class="flex flex-col md:flex-row md:items-center justify-between">
+    <div class="flex items-center">
+      <a href="/" class="text-3xl font-semibold">
+        <Image
+          src="/logo.webp"
+          alt="logo"
+          class="rounded-lg lg:mt-5 mt-0 lg:mb-5 mb-10 mx-auto hover:scale-105 transition-transform"
+          width={50}
+          height={50}
+        />
+      </a>
+    </div>
+    <div class="flex flex-row gap-6 mt-6 md:mt-0 md:ml-auto items-center">
+      <a href="/blog" class="nav-link">
+        <Icon name="fa6-solid:blog" class="w-5 h-5" />
+        <span class="font-semibold">Blog</span>
+      </a>
+      <a href="/projects" class="nav-link">
+        <Icon name="fa6-solid:diagram-project" class="w-5 h-5" />
+        <span class="font-semibold">Projects</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--accent-cyan);
+    transform: translateY(-3px);
+  }
+
+  .nav-tooltip {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-primary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .nav-link:hover .nav-tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -55px;
+  }
+</style>

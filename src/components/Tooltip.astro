@@ -1,0 +1,34 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="tooltip-wrapper">
+  <ul class="example-1">
+    <li class="icon-content">
+      <Icon name="fa6-solid:school" class="text-[30px]" style="color: var(--accent-purple)" />
+      <div class="tooltip">CKHS</div>
+    </li>
+    <li class="icon-content">
+      <Icon name="fa6-solid:code" class="text-[30px]" style="color: var(--accent-cyan)" />
+      <div class="tooltip">Dev</div>
+    </li>
+    <li class="icon-content">
+      <Icon name="fa6-solid:gamepad" class="text-[30px]" style="color: var(--accent-green)" />
+      <div class="tooltip">Gamer</div>
+    </li>
+  </ul>
+</div>
+
+<style>
+  ul { list-style: none; }
+  .example-1 { display: flex; justify-content: center; align-items: center; padding: 20px; height: 70px; width: 300px; }
+  .example-1 .icon-content { margin: 0 10px; position: relative; transition: transform 0.3s ease; }
+  .example-1 .icon-content:hover { transform: translateY(-5px); }
+  .example-1 .icon-content .tooltip {
+    position: absolute; top: -30px; left: 50%; transform: translateX(-50%);
+    background-color: transparent;
+    padding: 6px 10px; border-radius: 5px; opacity: 0; visibility: hidden;
+    font-size: 14px; transition: all 0.3s ease; border: 0px;
+  }
+  .example-1 .icon-content:hover .tooltip { opacity: 1; visibility: visible; top: -50px; }
+</style>

@@ -1,0 +1,48 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { metaData } from '../lib/config';
+
+interface Props {
+  title: string;
+  publishedAt: string;
+  summary: string;
+  image?: string;
+}
+
+const { title, publishedAt, summary, image } = Astro.props;
+
+function formatDate(date: string) {
+  return new Date(date).toLocaleString('en-us', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+---
+
+<BaseLayout title={title} description={summary} image={image}>
+  <section>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: title,
+      datePublished: publishedAt,
+      description: summary,
+      url: Astro.url,
+      author: {
+        "@type": "Person",
+        name: metaData.name,
+      },
+    })} />
+    
+    <h1 class="title mb-3 font-medium text-2xl">{title}</h1>
+    <div class="flex justify-between items-center mt-2 mb-8">
+      <p class="text-sm" style="color: var(--text-tertiary)">
+        {formatDate(publishedAt)}
+      </p>
+    </div>
+    <article class="prose prose-quoteless prose-neutral dark:prose-invert">
+      <slot />
+    </article>
+  </section>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    title: "b4b07",
+    description: "A simple discord bot for my presentation",
+    url: "https://github.com/b4dr47/b4b07",
+  },
+  {
+    title: "my-website",
+    description: "My website",
+    url: "https://github.com/b4dr47/my-website",
+  },
+];
+---
+
+<BaseLayout title="Projects" description="My projects">
+  <section>
+    <h1 class="mb-8 text-2xl font-medium" style="color: var(--text-primary)">Projects</h1>
+    <div>
+      {projects.map((project) => (
+        <a href={project.url} class="flex flex-col space-y-1 mb-5 transition-opacity duration-200 hover:opacity-80" target="_blank" rel="noopener noreferrer">
+          <div class="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
+            <h2 style="color: var(--text-primary)">{project.title}</h2>
+            <p style="color: var(--text-secondary)">{project.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
